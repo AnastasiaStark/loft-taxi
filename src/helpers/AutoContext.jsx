@@ -4,7 +4,7 @@ import React from 'react'
 export const AutoContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [isLoggedIn, setIsLoggedIn] = React.UseState(false)
+    const [isLoggedIn, setIsLoggedIn] = React.useState(false)
 
     const logIn = (email, password) => {
         if (email === "test@test.com" && password === "123123") {

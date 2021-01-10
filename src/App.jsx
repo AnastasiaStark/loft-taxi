@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
+import './component/Header'
 import { withAuth } from './helpers/AutoContext';
 
 
 class App extends React.Component {
 
     // eslint-disable-next-line react/no-typos
-    static PropTypes = {currentPage: PropTypes.string};
+    static propTypes = {currentPage: PropTypes.string};
 
     state = {currentPage: 'login'}
     navigateTo = (page) => {

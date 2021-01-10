@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { withAuth } from './helpers/AutoContext';
+import { withAuth } from '../helpers/AutoContext';
 
-class Header extends React.Component {
+class Header extends Component {
 
-    static PropTypes = {changePage: PropTypes.func};
+    static propTypes = {
+        changePage: PropTypes.func
+    };
 
 
     unauthenticate = () => {
@@ -15,7 +17,7 @@ class Header extends React.Component {
     render() {
         return (
             <header>
-                <Logo />
+                {/*<Logo />*/}
                 <nav>
                     <ul>
                         <li>
