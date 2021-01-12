@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Logo } from 'loft-taxi-mui-theme';
 import PropTypes from 'prop-types';
 import { withAuth } from '../helpers/AutoContext';
 
@@ -17,7 +18,7 @@ class Header extends Component {
     render() {
         return (
             <header>
-                {/*<Logo />*/}
+                <Logo />
                 <nav>
                     <ul>
                         <li>
@@ -29,7 +30,7 @@ class Header extends Component {
                         <li>
                             <button onClick={() => {
                                 this.props.changePage('profile')
-                            }}>выйти
+                            }}>Профиль
                             </button>
                         </li>
                         <li>

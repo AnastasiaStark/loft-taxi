@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
-import './component/Header'
+import  Header from './Component/Header'
 import { withAuth } from './helpers/AutoContext';
+import  Login from './Pages/Login'
 
 
 class App extends React.Component {
@@ -25,8 +26,8 @@ class App extends React.Component {
         {
             return (
                 <div className='wrapper'>
-                    {/*<Header changePage={this.navigateTo}/>*/}
-                    {/*{this.state.currentPage === 'login' && <Login changePage={this.navigateTo}/>}*/}
+                    <Header changePage={this.navigateTo} />
+                    {this.state.currentPage === 'login' && <Login changePage={this.navigateTo}/>}
                     {/*{this.state.currentPage === 'signUp' && <SignUp changePage={this.navigateTo}/>}*/}
                     {/*{this.state.currentPage === 'profile' && <Profile changePage={this.navigateTo}/>}*/}
                     {/*{this.state.currentPage === 'map' && <Map changePage={this.navigateTo}/>}*/}

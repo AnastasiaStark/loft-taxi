@@ -1,5 +1,4 @@
 import React from 'react'
-// import React, {UseState} from 'react'
 
 export const AutoContext = React.createContext();
 

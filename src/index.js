@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import {AuthProvider} from './helpers/AutoContext';
 
+import { theme } from "loft-taxi-mui-theme"
+import { MuiThemeProvider } from "@material-ui/core/styles"
+
 ReactDOM.render(
+    <MuiThemeProvider theme={theme}>
     <AuthProvider>
         <App isLoggedIn={true}/>
     </AuthProvider>,
+    </MuiThemeProvider>,
     document.getElementById('root')
 );
 
