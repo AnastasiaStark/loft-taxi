@@ -50,7 +50,7 @@ const [password,setPassword]=useState('');
                             <button type='submit'>Войти</button>
                         </form>
                         <div>Новый пользователь?</div>
-                        <button onClick={() => {this.props.changePage('SighUp')}}>Зарегестрируйтесь</button>
+                        <button onClick={() => {this.props.changePage('signUp')}}>Зарегестрируйтесь</button>
                     </>
                     )};
             </>

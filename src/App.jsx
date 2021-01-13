@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import './App.css';
 import  Header from './Component/Header'
 import { withAuth } from './helpers/AutoContext';
-import  Login from './Pages/Login'
+import Login from './Pages/Login'
+import {Map} from './Pages/Map'
+import SignUp from './Pages/SignUp'
 
 
 class App extends React.Component {
@@ -28,9 +30,9 @@ class App extends React.Component {
                 <div className='wrapper'>
                     <Header changePage={this.navigateTo} />
                     {this.state.currentPage === 'login' && <Login changePage={this.navigateTo}/>}
-                    {/*{this.state.currentPage === 'signUp' && <SignUp changePage={this.navigateTo}/>}*/}
+                    {this.state.currentPage === 'signUp' && <SignUp changePage={this.navigateTo}/>}
                     {/*{this.state.currentPage === 'profile' && <Profile changePage={this.navigateTo}/>}*/}
-                    {/*{this.state.currentPage === 'map' && <Map changePage={this.navigateTo}/>}*/}
+                    {this.state.currentPage === 'map' && <Map changePage={this.navigateTo}/>}
                 </div>
             );
         }
