@@ -8,6 +8,7 @@ import {Map} from './Pages/Map'
 import SignUp from './Pages/SignUp'
 
 
+
 class App extends React.Component {
 
     // eslint-disable-next-line react/no-typos

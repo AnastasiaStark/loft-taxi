@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
-import { withAuth } from '../helpers/AutoContext';
-
+// import { withAuth } from '../helpers/AutoContext';
+import {connect} from 'react-redux'
 
 
 const Login = ({LogIn, isLoggedIn, changePage}) => {
@@ -56,4 +56,5 @@ const [password,setPassword]=useState('');
             </>
         );
 }
-    export default withAuth(Login)
+const mapStateToProps = (state) => ({isLoggedIn:state.auth.isLoggedIn})
+    export default connect (mapStateToProps)(Login)
