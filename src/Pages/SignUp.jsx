@@ -56,12 +56,12 @@ class SighUp extends Component {
                     <button type="submit">Зарегестрироваться?</button>
                 </form>
                 <div>Уже зарегестрированы?</div>
-                <button onClick={() => {this.props.changePage('Login')}}>Зарегестрируйтесь</button>
+                <button onClick={() => {this.props.changePage('login')}}>Зарегестрируйтесь</button>
                 </>
 
                 );
         }
     }
 
-    export default withAuth(SighUp);
+    export default SighUp;
 

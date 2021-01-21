@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {logIn} from "../action";
 
 // import { withAuth } from '../helpers/AutoContext';
 import {connect} from 'react-redux'
@@ -57,4 +58,5 @@ const [password,setPassword]=useState('');
         );
 }
 const mapStateToProps = (state) => ({isLoggedIn:state.auth.isLoggedIn})
-    export default connect (mapStateToProps)(Login)
+const mapDispatchToProps = {logIn}
+    export default connect(mapStateToProps, mapDispatchToProps)(Login)

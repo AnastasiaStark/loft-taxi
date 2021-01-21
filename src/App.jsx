@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
 import  Header from './Component/Header'
-import { withAuth } from './helpers/AutoContext';
+// import { withAuth } from './helpers/AutoContext';
 import Login from './Pages/Login'
 import {Map} from './Pages/Map'
 import SignUp from './Pages/SignUp'
+import {connect} from 'react-redux'
+import {Profile} from './Profile'
 
 
 
@@ -32,12 +34,14 @@ class App extends React.Component {
                     <Header changePage={this.navigateTo} />
                     {this.state.currentPage === 'login' && <Login changePage={this.navigateTo}/>}
                     {this.state.currentPage === 'signUp' && <SignUp changePage={this.navigateTo}/>}
-                    {/*{this.state.currentPage === 'profile' && <Profile changePage={this.navigateTo}/>}*/}
+                    {this.state.currentPage === 'profile' && <Profile changePage={this.navigateTo}/>}
                     {this.state.currentPage === 'map' && <Map changePage={this.navigateTo}/>}
                 </div>
             );
         }
     }
 
-export default withAuth(App);
+export default connect(
+    state => ({isLoggedIn:state.auth.isLoggedIn})
+)(App);
 

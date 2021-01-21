@@ -31,4 +31,4 @@ export class Map extends Component {
  }
 }
 
-export default withAuth(Map);
+export default Map;
