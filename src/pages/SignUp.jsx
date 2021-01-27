@@ -1,4 +1,3 @@
-import { withAuth } from '../helpers/AutoContext';
 import React, {Component} from 'react';
 
 class SighUp extends Component {
@@ -12,7 +11,6 @@ class SighUp extends Component {
         const {email, password} = this.state;
 
         this.props.logIn(email.value, password.value);
-        this.props.changePage('map')
     };
 
     render() {
@@ -49,7 +47,7 @@ class SighUp extends Component {
                                 type='password'
                                 name='password'
                                 size='28'
-                                value={userName}
+                                value={password}
                                 onChange={event => this.setState({password: event.target.value})}
                             />
                         </label>
@@ -63,5 +61,5 @@ class SighUp extends Component {
         }
     }
 
-    export default SighUp;
+export default SighUp;
 
