@@ -1,20 +1,17 @@
 import React, {useState} from "react";
-import {logIn} from "../action";
-
-// import { withAuth } from '../helpers/AutoContext';
+import {authanticate} from "../action";
 import {connect} from 'react-redux'
 
 
-const Login = ({LogIn, isLoggedIn, changePage}) => {
+
+const Login = ({logIn, isLoggedIn, changePage}) => {
 
 const [email,setEmail]=useState('');
 const [password,setPassword]=useState('');
 
  const authenticate = (event) => {
          event.preventDefault();
-        const {email, password} = this.state;
-
-        this.props.logIn(email, password);
+         authanticate(email, password);
     };
 
         return (
@@ -51,12 +48,12 @@ const [password,setPassword]=useState('');
                             <button type='submit'>Войти</button>
                         </form>
                         <div>Новый пользователь?</div>
-                        <button onClick={() => {this.props.changePage('signUp')}}>Зарегестрируйтесь</button>
+                        <button onClick={() => { changePage('signUp') }}>Зарегестрируйтесь</button>
                     </>
                     )};
             </>
         );
 }
 const mapStateToProps = (state) => ({isLoggedIn:state.auth.isLoggedIn})
-const mapDispatchToProps = {logIn}
+const mapDispatchToProps = {authanticate}
     export default connect(mapStateToProps, mapDispatchToProps)(Login)

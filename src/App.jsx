@@ -8,7 +8,12 @@ import {Map} from './Pages/Map'
 import SignUp from './Pages/SignUp'
 import {connect} from 'react-redux'
 import {Profile} from './Profile'
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom"
 
 
 class App extends React.Component {
@@ -30,13 +35,25 @@ class App extends React.Component {
         render()
         {
             return (
-                <div className='wrapper'>
-                    <Header changePage={this.navigateTo} />
-                    {this.state.currentPage === 'login' && <Login changePage={this.navigateTo}/>}
-                    {this.state.currentPage === 'signUp' && <SignUp changePage={this.navigateTo}/>}
-                    {this.state.currentPage === 'profile' && <Profile changePage={this.navigateTo}/>}
-                    {this.state.currentPage === 'map' && <Map changePage={this.navigateTo}/>}
-                </div>
+                // <div className='wrapper'>
+                //     <Header changePage={this.navigateTo} />
+                //     {this.state.currentPage === 'login' && <Login changePage={this.navigateTo}/>}
+                //     {this.state.currentPage === 'signUp' && <SignUp changePage={this.navigateTo}/>}
+                //     {this.state.currentPage === 'profile' && <Profile changePage={this.navigateTo}/>}
+                //     {this.state.currentPage === 'map' && <Map changePage={this.navigateTo}/>}
+                // </div>
+                <Router>
+                    <Header changePage={this.navigateTo}/>
+                    <Route path="/login">
+                        <Login changePage={this.navigateTo}/>
+                    </Route>
+                    <Route path="/map">
+                        <Map changePage={this.navigateTo}/>
+                    </Route>
+                    <Route path="/profile">
+                        <Profile changePage={this.navigateTo}/>
+                    </Route>
+                </Router>
             );
         }
     }
