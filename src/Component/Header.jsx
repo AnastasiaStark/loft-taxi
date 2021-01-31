@@ -1,50 +1,34 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import { Logo } from 'loft-taxi-mui-theme';
-import PropTypes from 'prop-types';
-import { withAuth } from '../helpers/AutoContext';
 import {logOut} from "../action";
 import {connect} from "react-redux";
+import {useHistory, Link} from "react-router-dom";
 
-class Header extends Component {
-
-    static propTypes = {
-        changePage: PropTypes.func
-    };
-
-
-    unauthenticate = () => {
-        this.props.logOut();
-        this.props.changePage('login');
+const Header = ({logOut}) => {
+    const history = useHistory();
+    const unauthenticate = () => {
+        logOut();
+        history.push('/')
     }
-
-    render() {
-        return (
-            <header>
-                <Logo />
-                <nav>
-                    <ul>
-                        <li>
-                            <button onClick={() => {
-                                this.props.changePage('map')
-                            }}>Карта
-                            </button>
-                        </li>
-                        <li>
-                            <button onClick={() => {
-                                this.props.changePage('profile')
-                            }}>Профиль
-                            </button>
-                        </li>
-                        <li>
-                            <button onClick={this.unauthenticate}>Выйти</button>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-        );
-    }
+    return (
+        <header>
+            <Logo />
+            <nav>
+                <ul>
+                    <li>
+                        <Link to='/map'>Карта</Link>
+                    </li>
+                    <li>
+                        <Link to='/profile'>Профиль</Link>
+                    </li>
+                    <li>
+                        <button onClick={unauthenticate}>Выйти</button>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    );
 }
-const mapStateToProps = (state) => ({isLoggedIn:state.auth.isLoggedIn})
 const mapDispatchToProps = {logOut}
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(null, mapDispatchToProps)(Header)
 

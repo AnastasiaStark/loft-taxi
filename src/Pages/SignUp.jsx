@@ -1,5 +1,7 @@
 import { withAuth } from '../helpers/AutoContext';
 import React, {Component} from 'react';
+import {authanticate} from "../action";
+import {Link} from 'react-router-dom'
 
 class SighUp extends Component {
     state = {
@@ -7,16 +9,14 @@ class SighUp extends Component {
         password:'',
         userName:''
     }
+
     authenticate = (event) => {
         event.preventDefault();
         const {email, password} = this.state;
 
-        this.props.logIn(email.value, password.value);
-        this.props.changePage('map')
     };
 
     render() {
-        const {email, userName,password} = this.state
 
         return (
             <>
@@ -43,7 +43,7 @@ class SighUp extends Component {
                         onChange={event => this.setState({userName: event.target.value})}
                         />
                     </label>
-                        <label htmlFor='password'>Как вас зовут?*
+                        <label htmlFor='password'>Пароль?*
                             <input
                                 id='password'
                                 type='password'
@@ -56,7 +56,7 @@ class SighUp extends Component {
                     <button type="submit">Зарегестрироваться?</button>
                 </form>
                 <div>Уже зарегестрированы?</div>
-                <button onClick={() => {this.props.changePage('login')}}>Зарегестрируйтесь</button>
+                <Link to='/login'> Зарегестрируйтесь </Link>
                 </>
 
                 );

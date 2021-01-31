@@ -8,7 +8,7 @@ export class Map extends Component {
  mapContainer = React.createRef();
 
  componentDidMount() {
-     mapboxgl.assesToken = 'pk.eyJ1Ijoia3VkcmsiLCJhIjoiY2tqNGw2a2NuMGxtMjMybm9pMnk2MmE3ciJ9.DJzxJ1oxvNJoxcFqIid4Gw'
+     mapboxgl.accessToken = 'pk.eyJ1Ijoia3VkcmsiLCJhIjoiY2tqNGw2a2NuMGxtMjMybm9pMnk2MmE3ciJ9.DJzxJ1oxvNJoxcFqIid4Gw'
 
      this.map = new mapboxgl.Map({
          container: this.mapContainer.current,

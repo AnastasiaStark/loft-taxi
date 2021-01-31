@@ -1,10 +1,11 @@
 import React, {useState} from "react";
 import {authanticate} from "../action";
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 
 
-const Login = ({logIn, isLoggedIn, changePage}) => {
+const Login = ({logIn, isLoggedIn}) => {
 
 const [email,setEmail]=useState('');
 const [password,setPassword]=useState('');
@@ -16,7 +17,7 @@ const [password,setPassword]=useState('');
 
         return (
             <>
-                {isLoggedIn ? (<button onClick={() => changePage('map')}>Перейти к карте</button>) : (
+                {isLoggedIn ? (<Link to='/map'>)Перейти к карте</Link>) : (
                     <>
                         <h2>Войти</h2>
                         <form onSubmit={authenticate}>
@@ -44,16 +45,16 @@ const [password,setPassword]=useState('');
                                     placeholder='******'
                                 />
                             </label>
-                            <a href="/">Забыли пароль</a>
+                            <Link to="/">Забыли пароль</Link>
                             <button type='submit'>Войти</button>
                         </form>
                         <div>Новый пользователь?</div>
-                        <button onClick={() => { changePage('signUp') }}>Зарегестрируйтесь</button>
+                        <Link to='/signUp'> Зарегестрируйтесь </Link>
                     </>
                     )};
             </>
         );
 }
 const mapStateToProps = (state) => ({isLoggedIn:state.auth.isLoggedIn})
-const mapDispatchToProps = {authanticate}
+const mapDispatchToProps = {logIn:authanticate}
     export default connect(mapStateToProps, mapDispatchToProps)(Login)
