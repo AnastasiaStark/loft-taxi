@@ -1,24 +1,23 @@
 import React, {useState} from "react";
+import {authanticate} from "../action";
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
-import { withAuth } from '../helpers/AutoContext';
 
 
-
-const Login = ({LogIn, isLoggedIn, changePage}) => {
+const Login = ({logIn, isLoggedIn}) => {
 
 const [email,setEmail]=useState('');
 const [password,setPassword]=useState('');
 
  const authenticate = (event) => {
          event.preventDefault();
-        const {email, password} = this.state;
-
-        this.props.logIn(email, password);
+         authanticate(email, password);
     };
 
         return (
             <>
-                {isLoggedIn ? (<button onClick={() => changePage('map')}>Перейти к карте</button>) : (
+                {isLoggedIn ? (<Link to='/map'>)Перейти к карте</Link>) : (
                     <>
                         <h2>Войти</h2>
                         <form onSubmit={authenticate}>
@@ -46,14 +45,16 @@ const [password,setPassword]=useState('');
                                     placeholder='******'
                                 />
                             </label>
-                            <a href="/">Забыли пароль</a>
+                            <Link to="/">Забыли пароль</Link>
                             <button type='submit'>Войти</button>
                         </form>
                         <div>Новый пользователь?</div>
-                        <button onClick={() => {this.props.changePage('signUp')}}>Зарегестрируйтесь</button>
+                        <Link to='/signUp'> Зарегестрируйтесь </Link>
                     </>
                     )};
             </>
         );
 }
-    export default withAuth(Login)
+const mapStateToProps = (state) => ({isLoggedIn:state.auth.isLoggedIn})
+const mapDispatchToProps = {logIn:authanticate}
+    export default connect(mapStateToProps, mapDispatchToProps)(Login)

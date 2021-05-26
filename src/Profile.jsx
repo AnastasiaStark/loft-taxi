@@ -1,5 +1,14 @@
-import React from 'react'
+import React, {Component} from 'react';
+import {connect} from 'react-redux'
+import Header from "./Component/Header";
 
-export const Profile = () => {
-return <>Profile</>
-}
+const Profile = () => {
+    return (
+        <Profile />
+    );
+};
+
+    const mapDispatchToProps = {};
+
+    export default connect(null, mapDispatchToProps)(Profile);
+

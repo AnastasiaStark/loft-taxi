@@ -8,7 +8,7 @@ export class Map extends Component {
  mapContainer = React.createRef();
 
  componentDidMount() {
-     mapboxgl.assesToken = "pk.eyJ1IjoiYW5hc3Rhc2lhc3RhciIsImEiOiJja2p1YzByNHoxang2MnpqeHkxejJjN3h2In0.M6-r0wNqxwj0f95cZrvMWA"
+     mapboxgl.accessToken = 'pk.eyJ1Ijoia3VkcmsiLCJhIjoiY2tqNGw2a2NuMGxtMjMybm9pMnk2MmE3ciJ9.DJzxJ1oxvNJoxcFqIid4Gw'
 
      this.map = new mapboxgl.Map({
          container: this.mapContainer.current,
@@ -21,7 +21,7 @@ export class Map extends Component {
  }
 
     componentWillUnmount() {
-        // this.map.remove();
+        this.map.remove();
     }
 
     render() {
@@ -31,4 +31,4 @@ export class Map extends Component {
  }
 }
 
-export default withAuth(Map);
+    export default Map;
